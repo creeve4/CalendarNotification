@@ -1,0 +1,11 @@
+To build a debug APK, open a command line and navigate to the root of your project directory—from Android Studio, select View > Tool Windows > Terminal. To initiate a debug build, invoke the assembleDebug task:
+
+gradlew assembleDebug
+
+This creates an APK named module_name-debug.apk in project_name/module_name/build/outputs/apk/. The file is already signed with the debug key and aligned with zipalign, so you can immediately install it on a device.
+
+
+
+Or to build the APK and immediately install it on a running emulator or connected device, instead invoke installDebug:
+
+gradlew installDebug
