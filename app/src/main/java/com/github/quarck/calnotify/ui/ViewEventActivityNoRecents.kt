@@ -408,16 +408,6 @@ open class ViewEventActivityNoRecents : AppCompatActivity() {
             menuItem.isVisible = !event.isRepeating
         }
 
-        val menuItemMute = popup.menu.findItem(R.id.action_mute_event)
-        if (menuItemMute != null) {
-            menuItemMute.isVisible = !event.isMuted && !event.isTask
-        }
-
-        val menuItemUnMute = popup.menu.findItem(R.id.action_unmute_event)
-        if (menuItemUnMute != null) {
-            menuItemUnMute.isVisible = event.isMuted
-        }
-
         if (event.isTask) {
             val menuItemDismiss = popup.menu.findItem(R.id.action_dismiss_event)
             val menuItemDone = popup.menu.findItem(R.id.action_done_event)
@@ -474,19 +464,6 @@ open class ViewEventActivityNoRecents : AppCompatActivity() {
                             .create()
                             .show()
 
-                    true
-                }
-
-                R.id.action_mute_event -> {
-                    ApplicationController.toggleMuteForEvent(this, event.eventId, event.instanceStartTime, 0)
-                    event.isMuted = true
-
-                    true
-                }
-
-                R.id.action_unmute_event -> {
-                    ApplicationController.toggleMuteForEvent(this, event.eventId, event.instanceStartTime, 1)
-                    event.isMuted = false
                     true
                 }
 
