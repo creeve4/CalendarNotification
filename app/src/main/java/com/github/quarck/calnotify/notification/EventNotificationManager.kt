@@ -872,6 +872,18 @@ class EventNotificationManager : EventNotificationManagerInterface {
                         dismissPendingIntent
                 ).build()
 
+        if (notificationSettings.showSnoozeButton) {
+            val snoozeAction =
+                    NotificationCompat.Action.Builder(
+                            R.drawable.ic_update_white_24dp,
+                            ctx.getString(com.github.quarck.calnotify.R.string.snooze),
+                            snoozeActivityIntent
+                    ).build()
+
+            DevLog.debug(LOG_TAG, "adding pending intent for snooze, event id ${event.eventId}, notificationId ${event.notificationId}")
+            builder.addAction(snoozeAction)
+        }
+
         val extender = NotificationCompat.WearableExtender()
 
         if ((notificationSettings.enableNotificationMute || event.isMuted) && !event.isTask) {
