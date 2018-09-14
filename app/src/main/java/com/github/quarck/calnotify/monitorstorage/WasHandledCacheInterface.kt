@@ -1,6 +1,6 @@
 //
 //   Calendar Notifications Plus
-//   Copyright (C) 2016 Sergey Parshin (s.parshin.sc@gmail.com)
+//   Copyright (C) 2017 Sergey Parshin (s.parshin.sc@gmail.com)
 //
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
@@ -17,24 +17,18 @@
 //   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
 //
 
-package com.github.quarck.calnotify.broadcastreceivers
+package com.github.quarck.calnotify.monitorstorage
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import com.github.quarck.calnotify.app.ApplicationController
-import com.github.quarck.calnotify.logs.DevLog
-//import com.github.quarck.calnotify.logs.Logger
+import com.github.quarck.calnotify.calendar.EventAlertRecord
+import com.github.quarck.calnotify.calendar.MonitorEventAlertEntry
 
-open class AppUpdatedBroadcastReceiver : BroadcastReceiver() {
+interface WasHandledCacheInterface {
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        DevLog.debug(LOG_TAG, "onReceive");
-        if (context != null)
-            ApplicationController.onAppUpdated(context)
-    }
+    fun addHandledAlert(entry: EventAlertRecord)
+    fun addHandledAlerts(entries: Collection<EventAlertRecord>)
 
-    companion object {
-        private const val LOG_TAG = "BroadcastReceiverAppUpdated";
-    }
+    fun getAlertWasHandled(entry: EventAlertRecord): Boolean
+    fun getAlertsWereHandled(entries: Collection<EventAlertRecord>): BooleanArray
+
+    fun removeOldEntries(minAge: Long): Int
 }

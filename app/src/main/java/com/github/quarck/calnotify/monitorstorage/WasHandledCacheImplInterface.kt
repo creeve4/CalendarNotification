@@ -17,27 +17,23 @@
 //   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
 //
 
-package com.github.quarck.calnotify.broadcastreceivers
+package com.github.quarck.calnotify.monitorstorage
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import com.github.quarck.calnotify.app.ApplicationController
+import android.database.sqlite.SQLiteDatabase
+import com.github.quarck.calnotify.calendar.EventAlertRecord
+import com.github.quarck.calnotify.calendar.MonitorEventAlertEntry
 
+interface WasHandledCacheImplInterface {
+    fun createDb(db: SQLiteDatabase)
 
-open class ManualEventAlarmGenericBroadcastReceiver : BroadcastReceiver() {
+    fun addHandledAlert(db: SQLiteDatabase, entry: EventAlertRecord)
+    fun addHandledAlerts(db: SQLiteDatabase, entries: Collection<EventAlertRecord>)
 
-    override fun onReceive(context: Context?, intent: Intent?) {
+    fun getAlertWasHandled(db: SQLiteDatabase, entry: EventAlertRecord): Boolean
+    fun getAlertsWereHandled(db: SQLiteDatabase, entries: Collection<EventAlertRecord>): BooleanArray
 
-        if (context == null || intent == null)
-            return
-
-        ApplicationController.CalendarMonitor.onAlarmBroadcast(context, intent)
-    }
-}
-
-open class ManualEventAlarmBroadcastReceiver : ManualEventAlarmGenericBroadcastReceiver() {
-}
-
-open class ManualEventExactAlarmBroadcastReceiver : ManualEventAlarmGenericBroadcastReceiver() {
+    /**
+     * @return number of items removed
+     */
+    fun removeOldEntries(db: SQLiteDatabase, minAge: Long): Int
 }
