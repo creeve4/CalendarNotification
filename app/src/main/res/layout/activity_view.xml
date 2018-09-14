@@ -60,8 +60,9 @@
                     android:id="@+id/snooze_view_title"
                     android:text="Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. "
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textSize="19sp"
+                    android:textSize="22sp"
                     android:textColor="@color/event_title_color"
+                    android:fontFamily="sans-serif-medium"
                     android:paddingBottom="@dimen/snooze_view_header_padding_bottom"
                     android:paddingTop="@dimen/snooze_view_header_padding_top"
                     android:paddingStart="@dimen/snooze_view_padding_start"
@@ -134,11 +135,12 @@
                         android:importantForAccessibility="no"
                         />
 
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/snooze_view_event_date_line1"
-                        android:text="Tomorrow"
+                        android:id="@+id/snooze_view_event_date_line2"
+                        android:text="22:00 - 23:00"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@color/primary_text"
                         android:paddingBottom="@dimen/snooze_view_in_text_vert_padding"
@@ -152,15 +154,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/snooze_view_event_date_line2"
-                        android:text="22:00 - 23:00"
+                        android:id="@+id/snooze_view_event_date_line1"
+                        android:text="Tomorrow"
                         android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:paddingBottom="@dimen/snooze_view_in_text_vert_padding"
                         android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
                         android:paddingStart="@dimen/snooze_view_padding_start"
                         android:paddingEnd="@dimen/snooze_view_padding_end"
-                        android:layout_below="@id/snooze_view_event_date_line1"
+                        android:layout_below="@id/snooze_view_event_date_line2"
                         android:clickable="true"
                         tools:ignore="HardcodedText"
                         android:focusable="true" />
@@ -178,7 +180,7 @@
                         android:paddingStart="@dimen/snooze_view_padding_start"
                         android:paddingEnd="@dimen/snooze_view_padding_end"
                         android:visibility="gone"
-                        android:layout_below="@id/snooze_view_event_date_line2"
+                        android:layout_below="@id/snooze_view_event_date_line1"
                         tools:ignore="HardcodedText"/>
 
                 </RelativeLayout>
@@ -259,7 +261,7 @@
                     android:id="@+id/snooze_view_location_layout"
                     android:background="@color/background"
                     android:paddingBottom="@dimen/snooze_view_action_padding_bottom"
-                    android:paddingTop="@dimen/snooze_view_action_padding_top"
+                    android:paddingTop="20dp"
                     android:visibility="gone">
 
                     <ImageView
@@ -334,7 +336,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/divider"
-                    android:padding="0dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="14dp"
                     android:id="@+id/view_snooze_divider"
                     />
 
@@ -770,7 +773,8 @@
                     android:layout_height="1dp"
                     android:background="@color/divider"
                     android:id="@+id/snooze_view_inter_view_divider"
-                    android:padding="0dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="14dp"
                     />
 
                 <RelativeLayout

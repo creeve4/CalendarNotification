@@ -24,10 +24,10 @@
 
     <dimen name="snooze_view_header_spacing">22dp</dimen>
 
-    <dimen name="snooze_view_action_padding_top">16dp</dimen>
-    <dimen name="snooze_view_action_padding_bottom">8dp</dimen>
+    <dimen name="snooze_view_action_padding_top">4dp</dimen>
+    <dimen name="snooze_view_action_padding_bottom">4dp</dimen>
 
-    <dimen name="snooze_view_spacing">14dp</dimen>
+    <dimen name="snooze_view_spacing">10dp</dimen>
 
     <dimen name="snooze_view_img_topbottom">20dp</dimen>
 
@@ -35,8 +35,8 @@
     <dimen name="snooze_view_event_details_max_height">100dp</dimen>
     <dimen name="snooze_view_title_height">130dp</dimen>
 
-    <dimen name="snooze_view_in_text_vert_padding">4dp</dimen>
-    <dimen name="snooze_view_details_initial_padding">10dp</dimen>
+    <dimen name="snooze_view_in_text_vert_padding">2dp</dimen>
+    <dimen name="snooze_view_details_initial_padding">20dp</dimen>
 
     <dimen name="card_corner_radius">2dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
