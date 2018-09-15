@@ -60,18 +60,19 @@
                 android:layout_alignBaseline="@id/add_event_view_cancel"
                 android:background="?android:attr/selectableItemBackground"
                 android:longClickable="false"
-                android:paddingBottom="@dimen/snooze_view_img_padding_start"
+                android:paddingBottom="6dp"
                 android:paddingEnd="@dimen/snooze_view_img_padding_end"
                 android:paddingStart="@dimen/snooze_view_img_padding_start"
-                android:paddingTop="@dimen/snooze_view_img_padding_start"
+                android:paddingTop="12dp"
                 android:text="@string/save_button_title"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textStyle="normal"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="16sp"
                 android:textColor="@color/icons"
                 tools:ignore="RelativeOverlap"
                 android:contentDescription="@string/save_button"
                 />
-
 
             <EditText
                 android:layout_width="match_parent"
@@ -83,12 +84,13 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/event_title_color"
                 android:textColorHint="@color/event_title_hint_color"
-
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
                 android:paddingBottom="@dimen/add_event_view_header_padding_bottom"
                 android:paddingTop="@dimen/add_event_view_header_padding_top"
                 android:paddingStart="@dimen/add_event_view_padding_start"
                 android:paddingEnd="@dimen/add_event_view_padding_end"
-                android:inputType="textMultiLine|textCapSentences"
+                android:inputType="textCapSentences|textAutoCorrect"
 
                 android:gravity="start|bottom"
                 tools:ignore="HardcodedText"
@@ -176,12 +178,12 @@
 
         </RelativeLayout>
 
-        <View android:layout_width="match_parent" android:layout_height="@dimen/snooze_view_details_initial_padding" />
+        <View android:layout_width="match_parent" android:layout_height="0dp" />
 
         <!-- Account name-->
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@color/background"
             android:paddingBottom="@dimen/add_event_view_action_padding_bottom"
             android:paddingTop="@dimen/add_event_view_action_padding_top"
@@ -252,20 +254,6 @@
                 android:importantForAccessibility="no"
                 />
 
-            <Switch
-                android:id="@+id/switch_all_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/add_event_padding_bottom"
-                android:paddingTop="@dimen/add_event_padding_top"
-                android:paddingStart="@dimen/add_event_text_start"
-                android:paddingEnd="@dimen/add_event_date_end"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:text="@string/all_day"
-                android:layout_toEndOf="@id/image_date_time"
-
-                />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -280,7 +268,6 @@
                 tools:ignore="HardcodedText"
                 android:background="?android:attr/selectableItemBackground"
                 android:layout_toEndOf="@id/image_date_time"
-                android:layout_below="@id/switch_all_day"
                 />
 
             <Button
@@ -308,7 +295,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/primary_text"
                 android:paddingBottom="@dimen/add_event_padding_bottom"
-                android:paddingTop="@dimen/add_event_padding_top"
+                android:paddingTop="8dp"
                 android:paddingStart="@dimen/add_event_text_start"
                 android:paddingEnd="@dimen/add_event_date_end"
                 android:layout_below="@id/add_event_date_from"
@@ -325,7 +312,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/primary_text"
                 android:paddingBottom="@dimen/add_event_padding_bottom"
-                android:paddingTop="@dimen/add_event_padding_top"
+                android:paddingTop="8dp"
                 android:paddingEnd="@dimen/add_event_time_end"
                 android:paddingStart="@dimen/add_event_time_start"
                 android:layout_alignBaseline="@id/add_event_date_to"
@@ -333,6 +320,15 @@
                 tools:ignore="HardcodedText"
                 android:background="?android:attr/selectableItemBackground"/>
 
+            <Switch
+                android:id="@+id/switch_all_day"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/all_day"
+                android:layout_toEndOf="@id/image_date_time"
+
+                />
 
         </RelativeLayout>
 
@@ -344,6 +340,59 @@
             android:padding="0dp"
             />
 
+
+        <!-- Note -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:paddingBottom="@dimen/add_event_view_action_padding_bottom"
+            android:paddingTop="@dimen/add_event_view_action_padding_top"
+            >
+
+            <ImageView
+                android:id="@+id/image_event_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:src="@drawable/ic_event_note_black_24dp"
+                android:paddingStart="@dimen/add_event_image_start"
+                android:paddingEnd="@dimen/add_event_image_end"
+                android:paddingTop="@dimen/add_event_padding_top"
+                android:paddingBottom="@dimen/add_event_image_padding_bottom"
+                android:importantForAccessibility="no"
+                />
+
+            <EditText
+                android:id="@+id/event_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/image_event_note"
+                android:hint="@string/add_note"
+                android:paddingBottom="@dimen/add_event_padding_bottom"
+                android:paddingEnd="@dimen/add_event_text_end"
+                android:paddingStart="@dimen/add_event_text_start"
+                android:paddingTop="@dimen/add_event_padding_top"
+                android:text="@string/empty"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text"
+                android:background="@color/background"
+                android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
+                />
+
+
+        </RelativeLayout>
+
+
+        <!-- HR -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:padding="0dp"
+            />
 
         <!-- Location -->
         <RelativeLayout
@@ -383,7 +432,7 @@
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/secondary_text"
                 android:background="@color/background"
-
+                android:inputType="textCapSentences|textAutoCorrect"
                 />
 
         </RelativeLayout>
@@ -468,60 +517,6 @@
 
                 android:clickable="true"
                 />
-
-
-        </RelativeLayout>
-
-        <!-- HR -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/divider"
-            android:padding="0dp"
-            />
-
-
-        <!-- Note -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background"
-            android:paddingBottom="@dimen/add_event_view_action_padding_bottom"
-            android:paddingTop="@dimen/add_event_view_action_padding_top"
-            >
-
-            <ImageView
-                android:id="@+id/image_event_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:longClickable="false"
-                android:src="@drawable/ic_event_note_black_24dp"
-                android:paddingStart="@dimen/add_event_image_start"
-                android:paddingEnd="@dimen/add_event_image_end"
-                android:paddingTop="@dimen/add_event_padding_top"
-                android:paddingBottom="@dimen/add_event_image_padding_bottom"
-                android:importantForAccessibility="no"
-                />
-
-            <EditText
-                android:id="@+id/event_note"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@id/image_event_note"
-                android:hint="@string/add_note"
-                android:paddingBottom="@dimen/add_event_padding_bottom"
-                android:paddingEnd="@dimen/add_event_text_end"
-                android:paddingStart="@dimen/add_event_text_start"
-                android:paddingTop="@dimen/add_event_padding_top"
-                android:text="@string/empty"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/primary_text"
-                android:textColorHint="@color/secondary_text"
-                android:background="@color/background"
-                android:inputType="textMultiLine"
-                />
-
 
         </RelativeLayout>
 
