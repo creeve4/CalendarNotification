@@ -19,8 +19,8 @@
     <dimen name="snooze_view_img_padding_start">16dp</dimen>
     <dimen name="snooze_view_img_padding_end">16dp</dimen>
 
-    <dimen name="snooze_view_header_padding_top">36dp</dimen>
-    <dimen name="snooze_view_header_padding_bottom">24dp</dimen>
+    <dimen name="snooze_view_header_padding_top">48dp</dimen>
+    <dimen name="snooze_view_header_padding_bottom">36dp</dimen>
 
     <dimen name="snooze_view_header_spacing">22dp</dimen>
 

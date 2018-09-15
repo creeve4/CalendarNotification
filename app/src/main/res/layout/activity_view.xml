@@ -15,6 +15,11 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -22,23 +27,10 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextAppearance="@style/ToolbarTitle"
+            app:layout_collapseMode="pin"
             android:elevation="@dimen/toolbar_elevation"
             tools:targetApi="m"/>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".ui.EventViewActivityNoRecents"
-        tools:showIn="@layout/activity_view"
-        android:background="@color/background">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,9 +48,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minLines="2"
+                    android:minLines="1"
                     android:id="@+id/snooze_view_title"
-                    android:text="Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. Event Title Place Holder. "
+                    android:text="Event Title Place Holder"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textSize="22sp"
                     android:textColor="@color/event_title_color"
@@ -67,6 +59,7 @@
                     android:paddingTop="@dimen/snooze_view_header_padding_top"
                     android:paddingStart="@dimen/snooze_view_padding_start"
                     android:paddingEnd="@dimen/snooze_view_padding_end"
+                    android:layout_marginRight="20dp"
                     android:gravity="start|bottom"
                     tools:ignore="HardcodedText"
                     android:ellipsize="end"
@@ -101,6 +94,23 @@
                     android:contentDescription="@string/content_desc_menu" />
 
             </RelativeLayout>
+            
+            
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="110dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.EventViewActivityNoRecents"
+        tools:showIn="@layout/activity_view"
+        android:background="@color/background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,7 +141,7 @@
                         android:paddingStart="@dimen/snooze_view_img_padding_start"
                         android:paddingEnd="@dimen/snooze_view_img_padding_end"
                         android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="@dimen/snooze_view_img_topbottom"
                         android:importantForAccessibility="no"
                         />
 
@@ -158,7 +168,7 @@
                         android:text="Tomorrow"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@color/secondary_text"
-                        android:paddingBottom="@dimen/snooze_view_in_text_vert_padding"
+                        android:paddingBottom="14dp"
                         android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
                         android:paddingStart="@dimen/snooze_view_padding_start"
                         android:paddingEnd="@dimen/snooze_view_padding_end"
@@ -258,10 +268,48 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:paddingBottom="@dimen/snooze_view_action_padding_bottom"
+                    android:paddingTop="@dimen/snooze_view_action_padding_top"
+                    android:id="@+id/layout_event_description"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:longClickable="false"
+                        android:src="@drawable/ic_event_note_black_24dp"
+                        android:paddingStart="@dimen/snooze_view_img_padding_start"
+                        android:paddingEnd="@dimen/snooze_view_img_padding_end"
+                        android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
+                        android:paddingBottom="@dimen/snooze_view_img_topbottom"
+                        android:importantForAccessibility="no"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/snooze_view_event_description"
+                        android:text="__DESC_PLACEHOLDER__"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@color/primary_text"
+                        android:paddingBottom="14dp"
+                        android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
+                        android:paddingStart="@dimen/snooze_view_padding_start"
+                        android:paddingEnd="@dimen/snooze_view_padding_end"
+                        android:textIsSelectable="true"
+                        tools:ignore="HardcodedText"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/snooze_view_location_layout"
                     android:background="@color/background"
                     android:paddingBottom="@dimen/snooze_view_action_padding_bottom"
-                    android:paddingTop="20dp"
+                    android:paddingTop="@dimen/snooze_view_action_padding_top"
                     android:visibility="gone">
 
                     <ImageView
@@ -292,51 +340,12 @@
                         />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background"
-                    android:paddingBottom="@dimen/snooze_view_action_padding_bottom"
-                    android:paddingTop="@dimen/snooze_view_action_padding_top"
-                    android:id="@+id/layout_event_description"
-                    android:visibility="gone"
-                    >
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:longClickable="false"
-                        android:src="@drawable/ic_event_note_black_24dp"
-                        android:paddingStart="@dimen/snooze_view_img_padding_start"
-                        android:paddingEnd="@dimen/snooze_view_img_padding_end"
-                        android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
-                        android:paddingBottom="10dp"
-                        android:importantForAccessibility="no"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snooze_view_event_description"
-                        android:text="__DESC_PLACEHOLDER__"
-                        android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@color/primary_text"
-                        android:paddingBottom="@dimen/snooze_view_in_text_vert_padding"
-                        android:paddingTop="@dimen/snooze_view_in_text_vert_padding"
-                        android:paddingStart="@dimen/snooze_view_padding_start"
-                        android:paddingEnd="@dimen/snooze_view_padding_end"
-                        android:textIsSelectable="true"
-                        tools:ignore="HardcodedText"/>
-
-                </RelativeLayout>
-
-
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/divider"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginBottom="14dp"
                     android:id="@+id/view_snooze_divider"
                     />
@@ -360,7 +369,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/background"
-                    android:paddingBottom="@dimen/snooze_view_action_padding_bottom"
+                    android:paddingBottom="30dp"
                     android:paddingTop="@dimen/snooze_view_action_padding_top">
 
                     <ImageView
