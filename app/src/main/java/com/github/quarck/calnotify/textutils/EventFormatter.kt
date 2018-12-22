@@ -76,9 +76,12 @@ class EventFormatter(val ctx: Context) : EventFormatterInterface {
 
         if (event.location != "") {
             sb.append("\n")
-            sb.append(ctx.resources.getString(R.string.location));
-            sb.append(" ")
             sb.append(event.location)
+        }
+
+        if (event.desc != "") {
+            sb.append("\n")
+            sb.append(event.desc)
         }
 
         return sb.toString()
