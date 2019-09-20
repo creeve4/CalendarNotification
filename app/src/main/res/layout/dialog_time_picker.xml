@@ -27,7 +27,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textStyle="bold"
-            android:textColor="@color/secondary_text"
+            android:textColor="@color/primary_text"
             />
 
         <TimePicker
